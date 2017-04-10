@@ -1,0 +1,92 @@
+{
+    "targetid": 7,
+    "projectName": "registrationaward",
+    "title": "2017鸡年大吉抽奖专题",
+    "sortBase": 0,
+    "showListMax": 20,
+    "dateStart": "2017-03-01",
+    "dateEnd": "2017-04-30",
+    "rndAllow": false,
+    "rndListBeforeDay": 2,
+    "msgCoinCode": "2017jnqb",
+    "msgGoodsCode": "",
+    "overflowTimes": 0,
+    "openSubCount1":false,
+    "openSubCount2":false,
+    "openProjectAmount":false,
+    "itemList": [
+        {
+            "i": 0,
+            "title_level": "一等奖",
+            "title": "一场活动策划方案",
+            "title_1": "一场活动策划方案",
+            "angle": 15,
+            "angleCoin": 0
+        },
+        {
+            "i": 1,
+            "title_level": "一等奖",
+            "title": "店铺装修",
+            "title_1": "店铺装修",
+            "angle": 10,
+            "angleCoin": 0
+        },
+        {
+            "i": 2,
+            "title_level": "一等奖",
+            "title": "产品行业调研分析篇",
+            "title_1": "产品行业调研分析",
+            "angle": 5,
+            "angleCoin": 0
+        },
+        {
+            "i": 3,
+            "title_level": "一等奖",
+            "title": "500元购物券",
+            "title_1": "500元购物券",
+            "angle": 0,
+            "angleCoin": 0
+        },
+        {
+            "i": 4,
+            "title_level": "一等奖",
+            "title": "谢谢参与",
+            "title_1": "谢谢参与",
+            "angle": 60,
+            "angleCoin": 0
+        },
+        {
+            "i": 5,
+            "title_level": "一等奖",
+            "title": "300库币",
+            "title_1": "300库币",
+            "angle": 10,
+            "angleCoin": 300
+        }
+    ],
+    "qualifications": {
+        "unLogin": 0,
+        "personalBetween": 0,
+        "personalOverranging": 0,
+        "memberIndividualBetween": 1,
+        "memberIndividualOverranging": 0,
+        "memberFreeBetween": 1,
+        "memberFreeOverranging": 0,
+        "memberDptBetween": 1,
+        "memberDptOverranging": 0,
+        "memberHytBetween": 1,
+        "memberHytOverranging": 0
+    },
+    "emailService": {
+        "address": [
+            "hezhao@99114.com",
+            "cptg@99114.com"
+        ],
+        "emailTitle": "抽奖项目[{arg0}]会员[{arg1}]抽中[{arg2}]",
+        "emailContent":"<style>.table-b table{border:1px solid #F00}.table-b table td{border:1px solid #F00}</style><table class='able-b' border='1' cellspacing='0' cellpadding='0'><tr height='45'>	<td width='130' align='right'>会员编号</td>	<td width='700'>{arg0}</td>	<td align='right'>会员帐号</td>	<td>{arg1}</td>	<td align='right'>会员状态</td>	<td>{arg2}</td>	<td align='right'>公司名称</td>	<td>{arg3}</td>	<td align='right'>中奖奖品</td>	<td>{arg4}</td></tr></table>"
+    },
+    "emailMember": {
+        "emailTitle": "",
+        "emailContent": ""
+    }
+}

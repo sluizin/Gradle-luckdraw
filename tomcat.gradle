@@ -1,0 +1,15 @@
+ext{
+	dependencies {
+	    def tomcatVersion = '7.0.37' 
+	    tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",  
+	           "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}",  
+	           "org.apache.tomcat:tomcat-jasper:${tomcatVersion}" 
+	}
+	tomcat {
+	    httpPort = 8082
+	    httpsPort = 8091
+	    enableSSL = true
+	}
+tomcatRun.contextPath = '/luckActivity'
+tomcatRunWar.contextPath = '/luckActivity'
+}

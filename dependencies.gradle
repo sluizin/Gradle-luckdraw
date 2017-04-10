@@ -1,0 +1,46 @@
+ext{
+	repositories {
+		mavenLocal()
+	    maven {
+	        url 'https://repo.spring.io/libs-snapshot'
+	    }
+	}
+	dependencies {
+	    def springVersion = '3.1.2.RELEASE' 
+	    compile files('src/main/libs/rt.jar')
+	    compile(
+		'org.slf4j:slf4j-api:1.7.1',
+	    'jstl:jstl:1.2',   
+	    'log4j:log4j:1.2.17',   
+	    'com.alibaba:fastjson:1.1.24',  
+	    /* junit */
+	    'junit:junit:4.12',    
+	    /* freemarker */
+	    'org.freemarker:freemarker:2.3.19',    
+	    /* c标签库 */
+	    'taglibs:standard:1.1.2',  
+	    /* 验证 */
+	    'javax.validation:validation-api:1.0.0.GA',
+	    'org.hibernate:hibernate-validator:4.3.0.Final',      
+		/* spring */
+	    "org.springframework:spring-core:${springVersion}",
+	    "org.springframework:spring-aop:${springVersion}",
+	    "org.springframework:spring-context:${springVersion}",
+	    "org.springframework:spring-beans:${springVersion}",
+	    "org.springframework:spring-web:${springVersion}",
+	    "org.springframework:spring-webmvc:${springVersion}",
+	    "org.springframework:spring-tx:${springVersion}",
+	    "org.springframework:spring-jdbc:${springVersion}",
+	    "org.springframework:spring-test:${springVersion}",    
+	    /* mysql-connector */
+	    'mysql:mysql-connector-java:5.1.18',    
+	    /* commons-dbcp 数据库缓冲池 */
+	    'commons-dbcp:commons-dbcp:1.4',    
+	    /* mybatis */
+	    'org.mybatis:mybatis:3.3.0',//boot    
+	    /* mybatis-spring */
+	    'org.mybatis:mybatis-spring:1.2.3',//boot    
+	    )
+		providedCompile 'javax.servlet:servlet-api:2.5' //编译期
+	}
+}

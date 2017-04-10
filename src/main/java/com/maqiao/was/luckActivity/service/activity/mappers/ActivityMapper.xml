@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.maqiao.was.luckActivity.service.activity.dao.IActivityDao">
+	 <resultMap id="ActivityMap" type="com.maqiao.was.luckActivity.service.activity.model.Activity">
+		<id property="id" column="id" />
+		<result property="targetid" column="targetid" />
+		<result property="title" column="title" />
+		<result property="title2" column="title2" />
+		<result property="member_id" column="member_id" />
+		<result property="add_time" column="add_time" />
+		<result property="state" column="state" />
+		<result property="selectedpoint" column="selectedpoint" />
+		<result property="selecttitle" column="selecttitle" />
+	</resultMap>	
+	<sql id="AllColumn">
+		id,targetid,title,title2,member_id,add_time,state,selectedpoint,selecttitle
+	</sql>
+ <!-- 计算某个项目里共有多少条记录 --> 
+<select id="getActivityCount" parameterType="java.util.Map" resultType="long">
+		SELECT
+		count(*)
+		FROM special_activity where 2=2 
+        <if test="targetid != null">
+		 and targetid=#{targetid}
+        </if>             
+        <if test="member_id != null">
+            and member_id = #{member_id}
+        </if> 
+               
+        <if test="state != null">
+            and state = #{state}
+        </if>    
+        
+        <if test="selectedpoint != null">
+            and selectedpoint = #{selectedpoint}
+        </if>	
+		<if test="date1!=null and date1!=''">
+		    <![CDATA[   and DATE_FORMAT(add_time, '%Y-%m-%d') >= DATE_FORMAT(#{date1}, '%Y-%m-%d')]]>
+		</if>
+		<if test="date2!=null and date2!=''">
+		    <![CDATA[   and DATE_FORMAT(add_time, '%Y-%m-%d') <= DATE_FORMAT(#{date2}, '%Y-%m-%d')]]>
+		</if>	
+</select>
+
+<select id="getActivityHistory" parameterType="java.util.Map" resultMap="ActivityMap">
+SELECT 	<include refid="AllColumn" />
+ FROM special_activity where 1=1
+        <if test="targetid != null">
+            and targetid = #{targetid}
+        </if>   
+        <if test="member_id != null">
+            and member_id = #{member_id}
+        </if>        
+        <if test="state != null">
+            and state = #{state}
+        </if>    
+        <if test="selectedpoint != null">
+            and selectedpoint = #{selectedpoint}
+        </if>	
+		<if test="date1!=null and date1!=''">
+		    <![CDATA[   and DATE_FORMAT(add_time, '%Y-%m-%d')>=  DATE_FORMAT(#{date1}, '%Y-%m-%d')   ]]>
+		</if>
+		<if test="date2!=null and date2!=''">
+		    <![CDATA[   and DATE_FORMAT(add_time, '%Y-%m-%d') <= DATE_FORMAT(#{date2}, '%Y-%m-%d')    ]]>
+		</if>	
+</select>
+
+ <!-- 计算某个项目里共有多少条记录 --> 
+<select id="getCount" parameterType="long" resultType="long">
+		SELECT
+		count(*)
+		FROM special_activity where targetid=#{targetid}
+</select>
+ <!-- 计算某个项目里共有多少条记录 --> 
+<select id="getHistory" parameterType="java.util.Map" resultMap="ActivityMap">
+		SELECT
+		<include refid="AllColumn" />
+		FROM special_activity where targetid=#{targetid} 
+		
+        <if test="member_id != null">
+            and member_id = #{member_id}
+        </if>
+        
+        <if test="state != null">
+            and state = #{state}
+        </if>
+		
+		 order by add_time desc limit #{num}
+</select>
+ <!-- 得到某个项目下的某个会员的总数 --> 
+<select id="getMemberNumber" parameterType="java.util.Map" resultType="long">
+		SELECT
+		count(*)
+		FROM special_activity where targetid=#{targetid}
+        <if test="member_id != null">
+            and member_id = #{member_id}
+        </if>        
+        <if test="state != null">
+            and state = #{state}
+        </if>
+		<if test="date1!=null and date1!=''">
+		    <![CDATA[   and DATE_FORMAT(add_time, '%Y-%m-%d') >= DATE_FORMAT(#{date1}, '%Y-%m-%d')]]>
+		</if>
+		<if test="date2!=null and date2!=''">
+		    <![CDATA[   and DATE_FORMAT(add_time, '%Y-%m-%d') <= DATE_FORMAT(#{date2}, '%Y-%m-%d')]]>
+		</if>	
+</select>
+
+ <!-- 插入一条记录 --> 
+<insert id="save" parameterType="com.maqiao.was.luckActivity.service.activity.model.Activity">
+	INSERT INTO special_activity
+		(
+		id,
+		targetid,
+		title,
+		title2,
+		member_id,
+		add_time,
+		state,
+		selectedpoint,
+		selecttitle
+		)
+		values
+		(
+		#{id},
+		#{targetid},
+		#{title},
+		#{title2},
+		#{member_id},
+		NOW(),
+		#{state},
+		#{selectedpoint},
+		#{selecttitle}
+		)
+</insert>
+</mapper>

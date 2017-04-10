@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>抽奖项目结果列表</title>
+ </head>
+<script type="text/javascript" src="http://static.99114.com/static/portal/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="${env.staticPath!}/work/luckActivity/js/activityCommon.js"></script>
+ <body>
+ <table border='1' width='100%'><tr><td colspan='6'>${projectF.toString()!}</td></tr>
+ <tr>
+ 	<td width='80' align='center'>编号</td>
+ 	<td align='center'>公司名称</td>
+ 	<td width='100' align='center'>会员编号</td>
+ 	<td width='170' align='center'>时间</td>
+ 	<td width='160' align='center'>奖品</td>
+ 	<td width='80' align='center'>操作</td>
+ </tr>
+ <#list prizedListNew as bean>
+ <tr>
+ 	<td align='center'>${bean.id!}</td>
+ 	<td>${bean.title!}</td>
+ 	<td align='center'>${bean.member_id!}</td>
+ 	<td>${bean.add_time?string('yyyy-MM-dd HH:mm:ss')}</td>
+ 	<td>${bean.selectTitle!}</td>
+ 	<td><a href='/luckactivityHistroy/'>deleted</a></td>
+ </tr>
+</#list>
+ </table> 
+ </body>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>抽奖活动专题</title>
+<#assign SuperSlide211=false>
+<#include "/common/global.html">
+<link rel="stylesheet" href="${sj_sourcePath!}/css/module.css"/>
+<link rel="stylesheet" href="${sj_sourcePath!}/css/index.css"/>
+<script type="text/javascript" src="${sj_sourcePath!}/js/index.js"></script>
+<script src="${env.staticPath!}work/luckActivity/js/activityCommon.js"></script>
+</head>
+<#assign url="http://zhuanti.99114.${env.navSuffix!}/luckactivity/vibrationluck/index.html">
+<#assign url2="http%3A%2F%2Fzhuanti.99114.${env.navSuffix!}%2Fluckactivity%2Fvibrationluck%2Findex.html">
+<#assign activity_href_reg="http://register.99114.${env.navSuffix!}/register/gotoRegisterStart?siteId=10979&backUrl="+url>
+<#assign activity_href_login="http://checkin.99114.${env.navSuffix!}/login?service=http%3A%2F%2Fwww.99114.${env.navSuffix!}%2Flogin%2FtoIndex%3FsiteId%3D10979%26service%3D"+url2+"&source=1">
+<!-- ${sj_activityFromSiteid!} ${sj_activityMemberOwn.toJson()} -->
+<!-- ${sj_activityFromSiteidUrl!} -->
+<!-- ${AddTime!} -->
+<body style="margin-top: 30px;">
+<#--此处调用总站顶部注册登录条-->
+${siteDetail.portalHeadV3Url!}
+<div class="t2093-top">
+    <div class="t2093-top-con">
+        <div class="t2093-top-con-yun">
+            <li><img src="${sj_sourcePath!}/images/yun1.png" alt=""/></li>
+            <li><img src="${sj_sourcePath!}/images/yun2.png" alt=""/></li>
+            <li><img src="${sj_sourcePath!}/images/yun3.png" alt=""/></li>
+            <li><img src="${sj_sourcePath!}/images/yun4.png" alt=""/></li>
+            <li><img src="${sj_sourcePath!}/images/yun5.png" alt=""/></li>
+        </div>
+        <div class="t2093-top-con-hb">
+            <li><img src="${sj_sourcePath!}/images/hb1.png" alt=""/></li>
+            <li><img src="${sj_sourcePath!}/images/hb2.png" alt=""/></li>
+            <li><img src="${sj_sourcePath!}/images/hb3.png" alt=""/></li>
+        </div>
+    </div>
+</div>
+<div class="t2093-ind">
+    <div class="t2093-ind-con">
+        <!--第二张图-->
+        <div class="t2093-ind-banner2">
+            <img src="${sj_sourcePath!}/images/banner2.png" alt=""/>
+            <li><img src="${sj_sourcePath!}/images/djq1.png" alt=""/></li>
+            <li><img src="${sj_sourcePath!}/images/djq2.png" alt=""/></li>
+            <li><img src="${sj_sourcePath!}/images/djq3.png" alt=""/></li>
+            <li><img src="${sj_sourcePath!}/images/djq4.png" alt=""/></li>
+            <a class="t2093-ind-banner2-maodian" href="#maodian1"></a>
+        </div>
+        <!--第三张图-->
+        <div class="t2093-ind-banner3">
+            <div class="main2">
+                <div class="container">
+
+                    <div class="num num1">
+                        <div class="num-con num-con1">
+                            <div class="num-img"></div>
+                            <div class="num-img"></div>
+                        </div>
+                    </div>
+                    <div class="num num2">
+                        <div class="num-con num-con2">
+                            <div class="num-img"></div>
+                            <div class="num-img"></div>
+                        </div>
+                    </div>
+                    <div class="num num3">
+                        <div class="num-con num-con3">
+                            <div class="num-img"></div>
+                            <div class="num-img"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main3">
+                <div class="container">
+                    <div class="main3-btn"></div>
+
+                </div>
+            </div>
+            <!--判断登录再抽奖-->
+            <div class="z2093-wrapper">
+                <!-- 2093登录 -->
+                <div class="common-login-user " id="common-login-user" module="user" bestfitmodule="common-login-user">
+                    <div class="common-login-user-pre">
+                        <a target="_blank" class="common-login-user-pre-login site_t_login" href="${activity_href_login!}">登录</a>
+                        <a target="_blank" class="common-login-user-pre-register site_regist" href="${activity_href_reg!}">注册</a>
+                    </div>
+                </div>
+                <!--遮罩层-->
+                <div class="zzc"></div>
+            </div>
+            <div id="maodian1" class="t2093-ind-banner3-maodian1"></div>
+        </div>
+        <!--第四张图-->
+        <div class="t2093-ind-banner4"></div>
+        <div class="t2093-ind-banner5">
+            <p><a target="_blank" href="http://checkin.99114.com/login?service=http%3A%2F%2Ftop.99114.com%2Flogin%2FtoIndex%3FsiteId%3D10979%26service%3Dhttp%3A%2F%2Fzdscyw.com%2F&source=1">更多精彩，请登录</a></p>
+            <span><a href="http://zdscyw.com/" target="_blank"><i>更多惊喜，等你哦！</i></a></span>
+        </div>
+    </div>
+</div>
+<script>
+var state;
+var luckAmount;
+state=${sj_activityMemberOwn.state!'0'};
+luckAmount=${sj_activityMemberOwn.luckAmount!'0'};
+    $(".main3-btn").click(function () {
+    if(!flag){
+        flag=true;   
+	//var activity = new SJ_activityClass("/luckactivityJson/activityStateJson/6");
+
+	var targetid;
+	targetid=6;
+	var activity =getActivityStateJson(targetid);	
+	
+	
+	state=activity.state;
+	/* 未登陆 */
+	if(state == 0){
+        flag=false;
+        reset1();
+		$('.z2093-wrapper').show();
+		//alert("请先登陆企业会员!");
+		return;
+	}
+	/* 非企业会员 */
+	if(state < 5){
+        flag=false;
+        reset1();
+		alert("企业会员有一次抽奖机会，请升级到企业会员!");
+		return;
+	}
+	if(state % 2 == 0){
+        flag=false;
+        reset1();
+		alert("本活动面向所有新注册的企业会员(活动期间内新注册的企业会员)");
+		return;
+	}
+	luckAmount=activity.luckAmount;
+	/* 您已经抽过奖*/
+	if(luckAmount == 0){
+        flag=false;
+        reset1();
+		alert("您已经抽过奖。");
+		return;
+	}
+    //reset();
+    reset1();	
+    letGo();
+    setTimeout(function () {
+        flag=false;
+	    if(index==2){
+	        $(".fix,.pop-form").show();
+	    }else{
+	         $(".fix,.pop").show();
+	         $(".pop-text span").text(""+String(4-TextNum1)+(8-TextNum1))
+	    }
+    },4000);
+    index++;
+    }
+    });
+
+    var flag=false;
+    var index=0;
+    var TextNum1;
+
+    function letGo(){
+		//var activitySelect = new SJ_activityClass("/luckactivityJson/activityCashJson/6");
+		var targetid;
+		targetid=6;
+		var activitySelect =getActivityCashJson(targetid);
+		/* 没有抽到机会 */
+		if(activitySelect.selectedPoint == -1){
+			alert("您没有抽到奖项。");
+			return;
+		}
+		var selectedPointTitle="";
+		selectedPointTitle=activitySelect.selectedPointTitle;
+		TextNum1 = activitySelect.selectedPoint;
+		var num1=[-1022,-876,-730,-584,-438,-292,-146][TextNum1];//在这里随机
+	    $(".num-con1").animate({"top":-1168},1000,"linear", function () {
+	    $(this).css("top",0).animate({"top":num1},1000,"linear");
+	    });
+	    $(".num-con2").animate({"top":-1168},1000,"linear", function () {
+	    $(this).css("top",0).animate({"top":num1},1800,"linear");
+	    });
+	    $(".num-con3").animate({"top":-1168},1000,"linear", function () {
+	    $(this).css("top",0).animate({"top":num1},1300,"linear");
+	    });
+	    var t;
+	    t=setTimeout("alert('您已中奖。奖品“"+ selectedPointTitle +"”!')",3000);
+	    luckAmount = 0;
+    }
+
+    function reset1(){
+    $(".num-con1,.num-con2,.num-con3").css({"top":-0});
+    }
+    function reset(){
+    $(".num-con1,.num-con2,.num-con3").css({"top":-430});
+    }
+</script>
+<script type="text/javascript" src="${sj_sourcePath!}/js/index2.js"></script>
+<#include "/common/freemark_right.ftl">
+<#assign acc_fm_right_magintop_qq = acc_final_fm_right_magintop_1_1 >
+<@FMEshow_right_Inc_QQ_1 style=1 qq="3071185085"/>
+<#--底部　引用总站公用的-->
+${portalFooterUrl!}
+<#--footer end-->
+<#--公共头部top脚本-->
+<#include "/common/statisticalT.html">	
+</body>
+</html>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+	<mvc:resources location="/favicon.ico"  mapping="/favicon.ico" />  
+	<!-- default-autowire="byName" -->
+	<context:component-scan base-package="com.maqiao.was.luckActivity" />
+	<context:mbean-server/>
+	<context:annotation-config/>
+	<mvc:annotation-driven />
+	<mvc:default-servlet-handler />
+	<!-- 设置freeMarker的配置文件路径 -->
+	<bean id="freemarkerConfiguration" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="location" value="classpath:freemarker.properties" />
+	</bean>
+	<!-- 配置freeMarker的模板路径 -->
+	<bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+		<property name="freemarkerSettings" ref="freemarkerConfiguration" />
+		<property name="templateLoaderPath">
+			<value>/template</value>
+		</property>
+	</bean>
+	<bean id="propertyConfigurer"
+		class="com.maqiao.was.luckActivity.web.PropertyConfigurer">
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="locations">
+			<list>
+				<value>classpath*:url.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+<!-- 设置 spring-mybatis  -->
+  <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+     <property name="configLocation" value="classpath:spring/Configuration.xml" />
+     <property name="dataSource" ref="readdataSource"/>
+     <!--  <property name="mapperLocations" value="classpath:com/wangku/special/news/mappers/*.xml" /> -->
+  </bean>
+  <!-- DAO接口所在包名，Spring会自动查找其下的类 ,包下的类需要使用@MapperScan注解,否则容器注入会失败 -->
+  <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.wangku.special.news.dao;com.wangku.special.news.service" />
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+   </bean>
+<!-- 
+mybatis spring sqlSessionTemplate,使用时直接让spring注入即可
+    <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactory"></constructor-arg>
+    </bean>
+  <bean id="newdaoMap" class="org.mybatis.spring.mapper.MapperFactoryBean">
+     <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+     <property name="mapperInterface" value="com.wangku.special.news.dao.INewsDAO" />
+  </bean> 
+-->
+
+	<!-- freeMarker视图解析器 -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+		<!-- -->
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.freemarker.FreeMarkerView" />
+		<property name="order" value="1" />
+		<property name="contentType" value="text/html;charset=utf-8" />
+		<property name="cache" value="true" />
+		<property name="prefix" value="" />
+		<!-- 解析.html的模板 -->
+		<property name="suffix" value=".html" />
+		<property name="exposeSpringMacroHelpers" value="true" />
+		<property name="exposeRequestAttributes" value="true" />
+		<property name="exposeSessionAttributes" value="true" />
+		<property name="allowSessionOverride" value="true"/>  
+		<property name="requestContextAttribute" value="request" />
+	</bean>
+
+	<!-- jsp视图解析器 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="order" value="2" />
+		<property name="prefix">
+			<value>/WEB-INF/view/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
+	<bean
+		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="order" value="3" />
+		<property name="mediaTypes">
+			<map>
+				<entry key="json" value="application/json" />
+				<entry key="xml" value="application/xml" />
+				<entry key="rss" value="application/rss+xml" />
+			</map>
+		</property>
+	</bean>
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" > 
+	<property name="messageConverters">  
+	         <list>  
+	             <bean class = "org.springframework.http.converter.StringHttpMessageConverter">  
+	                <property name = "supportedMediaTypes">
+	                      <list>
+	                          <value>text/html;charset=UTF-8</value>  
+	                     </list>  
+	                </property>  
+	             </bean>  
+	         </list>  
+	   </property> 
+	</bean>
+</beans>

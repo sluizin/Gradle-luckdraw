@@ -1,0 +1,99 @@
+{
+    "targetid": 6,
+    "projectName": "vibrationluck",
+    "title": "中国振动筛产业网精品抽奖专题",
+    "sortBase": 0,
+    "showListMax": 0,
+    "dateStart": "2017-03-01",
+    "dateEnd": "2017-03-20",
+    "rndAllow": false,
+    "rndListBeforeDay": 2,
+    "msgCoinCode": "",
+    "msgGoodsCode": "",
+    "overflowTimes": 0,
+    "openSubCount1":false,
+    "openSubCount2":false,
+    "openProjectAmount":false,
+    "itemList": [
+        {
+            "i": 0,
+            "title_level": "特等奖",
+            "title": "运营推广服务",
+            "title_1": "运营推广服务",
+            "angle": 3,
+            "angleCoin": 0
+        },
+        {
+            "i": 1,
+            "title_level": "一等奖",
+            "title": "首页轮播图30天",
+            "title_1": "首页轮播图30天",
+            "angle": 5,
+            "angleCoin": 0
+        },
+        {
+            "i": 2,
+            "title_level": "二等奖",
+            "title": "店铺设计一套",
+            "title_1": "店铺设计一套",
+            "angle": 6,
+            "angleCoin": 0
+        },
+        {
+            "i": 3,
+            "title_level": "三等奖",
+            "title": "黄金展位20天",
+            "title_1": "黄金展位20天",
+            "angle": 7,
+            "angleCoin": 0
+        },
+        {
+            "i": 4,
+            "title_level": "四等奖",
+            "title": "采购信息推送一条",
+            "title_1": "采购信息推送一条",
+            "angle": 8,
+            "angleCoin": 0
+        },
+        {
+            "i": 5,
+            "title_level": "五等奖",
+            "title": "软文推广一篇",
+            "title_1": "软文推广一篇",
+            "angle": 11,
+            "angleCoin": 0
+        },
+        {
+            "i": 6,
+            "title_level": "六等奖",
+            "title": "产品排名库币",
+            "title_1": "产品排名库币",
+            "angle": 60,
+            "angleCoin": 0
+        }
+    ],
+    "qualifications": {
+        "unLogin": 0,
+        "personalBetween": 0,
+        "personalOverranging": 0,
+        "memberIndividualBetween": 0,
+        "memberIndividualOverranging": 0,
+        "memberFreeBetween": 1,
+        "memberFreeOverranging": 0,
+        "memberDptBetween": 1,
+        "memberDptOverranging": 0,
+        "memberHytBetween": 1,
+        "memberHytOverranging": 0
+    },
+    "emailService": {
+        "address": [
+            ""
+        ],
+        "emailTitle": "",
+        "emailContent":""
+    },
+    "emailMember": {
+        "emailTitle": "恭喜您，抽中中国振动筛产业网\"{arg0}\"！请尽快领取！",
+        "emailContent": "  您好，恭喜您在中国振动筛产业网近期开展的抽奖活动中幸运抽到\"{arg0}\"，请您在3日内联系中国振动筛产业网客服人员，将您的中奖页面截图发送客服人员进行兑奖！<br><br><br>客服QQ 3071185085<br>客服电话 400-876-5195"
+    }
+}

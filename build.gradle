@@ -1,0 +1,36 @@
+import org.gradle.plugins.ide.eclipse.model.Facet
+buildscript {
+	  repositories {
+			mavenLocal()
+			maven {url "https://plugins.gradle.org/m2/"}
+		}
+	  dependencies {	  
+			tasks.withType(JavaCompile) {options.encoding = "UTF-8"}
+	  		classpath "com.bmuschko:gradle-tomcat-plugin:2.2.4"
+	  }
+}
+allprojects {  
+	apply plugin: 'java'
+	apply plugin: 'maven'
+	apply plugin: 'eclipse'
+	apply plugin: 'war'
+	apply plugin: 'eclipse-wtp'
+	apply plugin: 'jetty'
+	group="com.maqiao.was.luckActivity";
+	version = '1.0'  
+	sourceCompatibility = 1.8   // 设置 JDK 版本
+	targetCompatibility = 1.8
+	apply plugin: 'com.bmuschko.tomcat'
+	webAppDirName = 'WebContent'    // 设置 WebApp 根目录
+}
+apply from:"tomcat.gradle"//tomcat配置
+apply from:"dependencies.gradle"//项目依赖
+sourceSets {
+    main {
+        resources {
+            srcDirs =["src/main/java","src/main/resources"]
+            //exclude "src/main/resources/$env/cas/"
+            //exclude "**cas/*"
+        }
+    }
+}

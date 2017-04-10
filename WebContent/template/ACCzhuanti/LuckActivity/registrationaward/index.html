@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>2017鸡年大吉</title>
+   
+<link href="${sj_sourcePath!}/css/index.css" rel="stylesheet" type="text/css" />
+<script src="${sj_sourcePath!}/js/jquery-1.8.0.min.js"></script>
+<script src="${sj_sourcePath!}/js/jQueryRotate.2.2.js"></script>
+<script src="${env.staticPath!}work/js/commverification.js"></script>
+<script src="${env.staticPath!}work/luckActivity/js/activityCommon.js"></script>
+</head>
+<!-- ${sj_activityFromSiteid!} ${sj_activityMemberOwn.toJson()} -->
+<!-- ${sj_activityFromSiteidUrl!} -->
+<!-- ${sj_AddTime!} -->
+<!-- ${env!} -->
+<#assign url="http://zhuanti.99114.${env.navSuffix!}/luckactivity/registrationaward/siteid/"+sj_activityFromSiteid>
+<#assign url2="http%3A%2F%2Fzhuanti.99114.${env.navSuffix!}%2Fluckactivity%2Fregistrationaward%2Fsiteid%2F"+sj_activityFromSiteid>
+<#assign activity_href_reg="http://register.99114.${env.navSuffix!}/register/gotoRegisterStart?siteId="+sj_activityFromSiteid+"&backUrl="+url>
+<#assign activity_href_login="http://checkin.99114.${env.navSuffix!}/login?service=http%3A%2F%2Fwww.99114.${env.navSuffix!}%2Flogin%2FtoIndex%3FsiteId%3D"+sj_activityFromSiteid+"%26service%3D"+url2+"&source=1">
+
+<body>
+    <div class="index">
+        <!--顶部图片-->
+        <div class="index-top">
+            <div class="index-top-con">
+                <div class="index-top-con-pic">
+                    <img src="${sj_sourcePath!}/fodder/top1.jpg" alt=""/>
+                    <img src="${sj_sourcePath!}/fodder/top2.jpg" alt=""/>
+                </div>
+            </div>
+        </div>
+        <div class="index-main">
+            <!--总高 2472-->
+            <div class="index-main-con">
+                <!--注册送礼图片 273-->
+                <div class="index-main-con-topPic">
+                    <div class="index-main-con-topPic-yun1">
+                        <img src="${sj_sourcePath!}/images/yun1.png" alt=""/>
+                    </div>
+                    <div class="index-main-con-topPic-feiji">
+                        <img src="${sj_sourcePath!}/images/feiji.png" alt=""/>
+                    </div>
+                    <div class="index-main-con-topPic-yun2">
+                        <img src="${sj_sourcePath!}/images/yun2.png" alt=""/>
+                    </div>
+                </div>
+                <!--抽奖转盘 538-->
+                <div class="index-main-con-choujiang">
+                    <!--抽奖左转盘-->
+                    <div class="index-main-con-choujiang-left">
+                        <div class="g-content">
+                            <div class="g-lottery-case">
+                                <div class="g-left">
+                                    <div class="g-lottery-box">
+                                        <div class="g-lottery-img1">
+                                            <a class="playbtn" href="javascript:;" title="开始抽奖"></a>
+                                        </div>
+                                        <img id="button" class="g-lottery-img" src="${sj_sourcePath!}/images/icon2.png"/>
+                                        <!-- <div class="g-lottery-img"></div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--抽奖右表单-->
+                    <div class="index-main-con-choujiang-right">
+                        <p>详情咨询</p>
+                        <form id="Formsend" name="Formsend"  action="/" method="post">
+                            <input type="text" class="input1" id="acywname" name="acywname" value="产业网名称" onblur="if(this.value==''){this.value='产业网名称'}" onfocus="if(this.value=='产业网名称'){this.value=''}" maxlegnth="20"/>
+                            <input type="text" class="input1" id="bdescription" name="bdescription"  value="问题描述" onblur="if(this.value==''){this.value='问题描述'}" onfocus="if(this.value=='问题描述'){this.value=''}" maxlegnth="20"/>
+                            <input type="text" class="input1" id="cusername" name="cusername" value="姓名" onblur="if(this.value==''){this.value='姓名'}" onfocus="if(this.value=='姓名'){this.value=''}" maxlegnth="20"/>
+                            <input type="text" class="input1" id="dmobile" name="dmobile"  value="手机" onblur="if(this.value==''){this.value='手机'}" onfocus="if(this.value=='手机'){this.value=''}" maxlegnth="20"/>
+                            <input type="text" id="email" name="email"  value="电子邮件" onblur="if(this.value==''){this.value='电子邮件'}" onfocus="if(this.value=='电子邮件'){this.value=''}" maxlegnth="20"/>
+                            <input type="text" id="fcity" name="fcity"  value="城市" onblur="if(this.value==''){this.value='城市'}" onfocus="if(this.value=='城市'){this.value=''}" maxlegnth="20"/>
+                            <input type="hidden" id="sendEmailTitle" name="sendEmailTitle" value="2017鸡年大吉抽奖专题-详情咨询" />
+                            <input type="hidden" id="sendEmailAddress" name="sendEmailAddress" value="hezhao@99114.com" />
+                            <input type="hidden" id="sendEmailAddress" name="sendEmailAddress" value="cptg@99114.com" />
+                            <input type="hidden" id="acywname_title" name="acywname_title" value="产业网名称" />
+                            <input type="hidden" id="bdescription_title" name="bdescription_title" value="问题描述" />
+                            <input type="hidden" id="cusername_title" name="cusername_title" value="姓名" />
+                            <input type="hidden" id="dmobile_title" name="dmobile_title" value="手机" />
+                            <input type="hidden" id="email_title" name="email_title" value="电子邮件" />
+                            <input type="hidden" id="fcity_title" name="fcity_title" value="城市" />
+                            <a href="javascript:;" id="submitForm" name="submitForm" onclick="javascript:formcommonsub();">提 交</a>
+                        </form>
+                    </div>
+					<#include "promptwindow.ftl">
+                </div>
+                <!--活动规则 523-->
+                <div class="index-main-con-huodong">
+                    <div class="index-main-con-huodong-txt">
+                        <p class="p1">本次活动面向所有新注册会员（活动期间注册会员）</p>
+                        <p class="p2"><span>登录状态下</span>可获得1次抽奖机会</p>
+                        <p class="p3"><span>中奖后24小时内，客服会与您确认中奖信息，您也可在网站首页与客服人员取得联系</span></p>
+                        <p class="p4">如您对本活动有任何疑问，可将联系方式填写上方栏目，客服人员会及时与您取得联系</p>
+                    </div>
+                </div>
+                <!--福利 680-->
+                <div class="index-main-con-fuli">
+                    <div class="index-main-con-fuli1">
+                        <p>发布15条可申请由网库匹配<span>5</span>条精准采购信息</p>
+                    </div>
+                    <div class="index-main-con-fuli2">
+                        <p>发布30条可申请首页广告位推广<span>15</span>天</p>
+                    </div>
+                    <div class="index-main-con-fuli3">
+                        <p>发布50条可申请打造<span>1场专属活动策划方案及执行支持</span>，产业网上下游网站同步不间断广告推广</p>
+                    </div>
+                </div>
+                <!--底部活动规则 458-->
+                <div class="index-main-con-bottom">
+                    <div class="index-main-con-bottom-txt">
+                        <p>2017年4月29日前，完成商机发布，即可向客服申请兑换福利2017年4月30日14点，未申请者，视为自动放弃福利</p>
+                        <p>活动针对于全站(新老)会员活动时间内发布商机条数</p>
+                        <p>福利申请成功者，请与客服保持联系，我们会尽快为您服务</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="${sj_sourcePath!}/js/index.js"></script>
+</body>
+</html>
