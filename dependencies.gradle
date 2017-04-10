@@ -7,7 +7,7 @@ ext{
 	}
 	dependencies {
 	    def springVersion = '3.1.2.RELEASE' 
-	    compile files('src/main/libs/rt.jar')
+	    compile files('C:///Program Files///Java///jre1.8.0_101///lib///rt.jar')
 	    compile(
 		'org.slf4j:slf4j-api:1.7.1',
 	    'jstl:jstl:1.2',   
