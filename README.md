@@ -1,4 +1,7 @@
 # 抽奖项目。独立专题
+* 建立新抽奖专题
+* 在com.maqiao.was.luckActivity.web.luckProject中建立 AbstractActivityProject抽象类的实类
+* 
 * 只通过ajax得到会员状态 和 进行抽奖后的结果
 * 抽奖结果分为：库币(可发送站内信)、实物(发送中奖邮件)。
 * 抽奖结果可发中奖邮件，可向中奖会员与管理员邮箱发送中奖信息
